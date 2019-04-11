@@ -19,6 +19,17 @@ class BackendDashboard(Dashboard):
             models=('django.contrib.*',
                     )
         ))
+        self.children.append(modules.LinkList(
+            _('图片/文件管理'),
+            column=2,
+            children=[
+                {
+                    'title': _('浏览管理器'),
+                    'url': '/backend/admin/filebrowser/browse/',
+                    'external': False,
+                },
+            ]
+        ))
         self.children.append(modules.ModelList(
             _('场地管理'),
             column=1,
