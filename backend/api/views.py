@@ -1,9 +1,10 @@
 from rest_framework import generics
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.views import Response
+from django_filters.rest_framework import DjangoFilterBackend
 
 from backend.models import PlaceInfo
-from backend.api import serializers
+from backend.api import serializers, filters
 
 
 class LargeResultsSetPagination(PageNumberPagination):
@@ -27,7 +28,13 @@ class LargeResultsSetPagination(PageNumberPagination):
 
 
 class PlaceListView(generics.ListAPIView):
-    queryset = PlaceInfo.objects.get_queryset().prefetch_related('image').order_by('id').only(
+    serializer_class = serializers.PlaceListSerializer
+    pagination_class = LargeResultsSetPagination
+    filter_backends = (DjangoFilterBackend,)
+    filter_class = filters.PlaceListFilter
+    queryset = PlaceInfo.objects.get_queryset().\
+        prefetch_related('image').order_by('id')\
+        .only(
         'id',
         'name',
         'city',
@@ -37,8 +44,6 @@ class PlaceListView(generics.ListAPIView):
         'minMealCost',
         'image'
     )
-    serializer_class = serializers.PlaceListSerializer
-    pagination_class = LargeResultsSetPagination
 
 
 class PlaceDetailView(generics.RetrieveAPIView):
