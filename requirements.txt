@@ -3,6 +3,7 @@ django-filebrowser==3.11.1
 django-grappelli==2.12.2
 djangorestframework==3.9.2
 django-cors-headers==2.5.2
+django-filter==2.1.0
 gevent==1.4.0
 ipython==7.4.0
 PyMySQL==0.9.3
