@@ -27,7 +27,7 @@ class LargeResultsSetPagination(PageNumberPagination):
 
 
 class PlaceListView(generics.ListAPIView):
-    queryset = PlaceInfo.objects.get_queryset().order_by('id').only(
+    queryset = PlaceInfo.objects.get_queryset().prefetch_related('image').order_by('id').only(
         'id',
         'name',
         'city',
@@ -35,6 +35,7 @@ class PlaceListView(generics.ListAPIView):
         'address',
         'guestRoomReferencePrice',
         'minMealCost',
+        'image'
     )
     serializer_class = serializers.PlaceListSerializer
     pagination_class = LargeResultsSetPagination

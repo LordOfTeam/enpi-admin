@@ -3,22 +3,6 @@ from rest_framework import serializers
 from backend import models
 
 
-class PlaceListSerializer(
-    serializers.ModelSerializer,
-):
-    class Meta:
-        model = models.PlaceInfo
-        fields = (
-            'id',
-            'name',
-            'city',
-            'area',
-            'address',
-            'guestRoomReferencePrice',
-            'minMealCost',
-        )
-
-
 class ImageSerializer(
     serializers.ModelSerializer,
 ):
@@ -30,6 +14,25 @@ class ImageSerializer(
 
     def to_representation(self, instance):
         return super(ImageSerializer, self).to_representation(instance).get('image')
+
+
+class PlaceListSerializer(
+    serializers.ModelSerializer,
+):
+    image = ImageSerializer(many=True)
+
+    class Meta:
+        model = models.PlaceInfo
+        fields = (
+            'id',
+            'name',
+            'city',
+            'area',
+            'address',
+            'guestRoomReferencePrice',
+            'minMealCost',
+            'image'
+        )
 
 
 class BallRoomsSerializer(
