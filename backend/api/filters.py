@@ -12,12 +12,13 @@ class PlaceListFilter(filters.FilterSet):
     area_gte = filters.NumberFilter(field_name='ballrooms__area', lookup_expr='gte')
     area_lte = filters.NumberFilter(field_name='ballrooms__area', lookup_expr='lte')
     height_gte = filters.NumberFilter(field_name='ballrooms__height', lookup_expr='gte')
+    city_area = filters.CharFilter(field_name='area')
 
     class Meta:
         model = PlaceInfo
         fields = [
             'city',        # 城市： 默认：上海市
-            'area',        # 行政区域，例如虹口区、浦东新区
+            'city_area',        # 行政区域，例如虹口区、浦东新区
             'people_gte',  # 大于等于人数
             'people_lte',  # 小于等于人数
             'price_lte',   # 小于等于价格
