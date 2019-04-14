@@ -62,10 +62,10 @@ class PlaceInfo(models.Model):
     guestRoomReferencePrice = models.IntegerField(verbose_name='平均房价', help_text='整数')
     minMealCost = models.IntegerField(verbose_name='最低餐标', help_text='整数')
     introDoc = FileBrowseField("PDF", max_length=200, extensions=[".pdf"])
-    image = models.ManyToManyField(ImageInfo, related_name='images')
+    image = models.ManyToManyField(ImageInfo, related_name='images', help_text='用于展示酒店图片')
     description = models.TextField(verbose_name='场地简介')
-    ballrooms = models.ManyToManyField(HallInfo, related_name='ballrooms')
-    rooms = models.ManyToManyField(GuestRoom, related_name='rooms')
+    ballrooms = models.ManyToManyField(HallInfo, related_name='ballrooms', verbose_name='宴会厅')
+    rooms = models.ManyToManyField(GuestRoom, related_name='rooms', verbose_name='客房')
 
     def __str__(self):
         return self.name
