@@ -11,7 +11,6 @@ class GuestRoomAdmin(admin.ModelAdmin):
         'bedType',
         'area',
         'amount',
-        'network',
         'price'
     )
     search_fields = (
@@ -21,7 +20,6 @@ class GuestRoomAdmin(admin.ModelAdmin):
         'bedType',
         'area',
         'amount',
-        'network',
         'price'
     )
 

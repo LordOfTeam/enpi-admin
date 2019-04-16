@@ -11,7 +11,7 @@ class HallInfo(models.Model):
     name = models.CharField(max_length=40, unique=True, verbose_name='宴会厅名称')
     area = models.IntegerField(verbose_name='面积', help_text='整数')
     height = models.FloatField(verbose_name='层高', help_text='浮点数')
-    maxPeople = models.IntegerField(verbose_name='歌剧式人数', help_text='整数')
+    maxPeople = models.IntegerField(verbose_name='剧院式人数', help_text='整数')
     kezhuoMaxPeople = models.IntegerField(verbose_name='课桌式人数', help_text='整数')
     yuanzhuoMaxTable = models.IntegerField(verbose_name='圆桌式桌数', help_text='整数')
     allDayPrice = models.IntegerField(verbose_name='全天价格', help_text='整数')
@@ -27,7 +27,7 @@ class ImageInfo(models.Model):
         verbose_name_plural = '场地图片管理'
 
     name = models.CharField(max_length=40, unique=True, verbose_name='图片标示')
-    image = FileBrowseField("Image", max_length=200, extensions=[".jpg", ".png"])
+    image = FileBrowseField("Image", max_length=200, extensions=[".jpg", ".png", ".jpeg"])
 
     def __str__(self):
         return self.name
@@ -43,7 +43,6 @@ class GuestRoom(models.Model):
     bedType = models.CharField(max_length=10, verbose_name='床型')
     area = models.IntegerField(verbose_name='面积', help_text='整数')
     amount = models.IntegerField(verbose_name='数量', help_text='整数')
-    network = models.CharField(max_length=5, default='有', verbose_name='宽带')
     price = models.IntegerField(verbose_name='刊例价', help_text='整数')
 
     def __str__(self):
