@@ -33,8 +33,9 @@ class PlaceInfoAdmin(admin.ModelAdmin):
         'city',
         'area',
         'address',
-        'guestRoomReferencePrice',
-        'minMealCost',
+        'maxBallroomArea',
+        'maxAllPeople',
+        'roomNum'
     )
     search_fields = (
         'id',
@@ -42,8 +43,9 @@ class PlaceInfoAdmin(admin.ModelAdmin):
         'city',
         'area',
         'address',
-        'guestRoomReferencePrice',
-        'minMealCost',
+        'maxBallroomArea',
+        'maxAllPeople',
+        'roomNum'
     )
 
     filter_horizontal =(
