@@ -31,7 +31,10 @@ class PlaceListSerializer(
             'address',
             'guestRoomReferencePrice',
             'minMealCost',
-            'image'
+            'image',
+            'maxBallroomArea',
+            'maxAllPeople',
+            'roomNum'
         )
 
 
