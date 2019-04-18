@@ -40,8 +40,6 @@ class PlaceListView(generics.ListAPIView):
         'city',
         'area',
         'address',
-        'guestRoomReferencePrice',
-        'minMealCost',
         'image',
         'maxBallroomArea',
         'maxAllPeople',
