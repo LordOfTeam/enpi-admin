@@ -8,7 +8,7 @@ class HallInfo(models.Model):
         verbose_name_plural = '宴会厅管理'
 
     tag = models.CharField(max_length=40,unique=True, verbose_name='标示')
-    name = models.CharField(max_length=40, unique=True, verbose_name='宴会厅名称')
+    name = models.CharField(max_length=40, verbose_name='宴会厅名称')
     area = models.IntegerField(verbose_name='面积', help_text='整数')
     height = models.FloatField(verbose_name='层高', help_text='浮点数')
     maxPeople = models.IntegerField(verbose_name='剧院式人数', help_text='整数')
