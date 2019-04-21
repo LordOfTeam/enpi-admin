@@ -29,6 +29,7 @@ class PlaceListSerializer(
             'city',
             'area',
             'address',
+            'hallPrice',
             'image',
             'maxBallroomArea',
             'maxAllPeople',
