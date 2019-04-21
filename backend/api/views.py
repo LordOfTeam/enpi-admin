@@ -43,7 +43,8 @@ class PlaceListView(generics.ListAPIView):
         'image',
         'maxBallroomArea',
         'maxAllPeople',
-        'roomNum'
+        'roomNum',
+        'hallPrice'
     )
 
 

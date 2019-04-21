@@ -58,6 +58,7 @@ class PlaceInfo(models.Model):
     city = models.CharField(max_length=30, default='上海市', verbose_name='城市', help_text='默认：上海市')
     area = models.CharField(max_length=20, verbose_name='行政区域', help_text="举例： 浦东新区")
     address = models.CharField(max_length=40, verbose_name='地址')
+    hallPrice = models.IntegerField(verbose_name='会场参考价')
     introDoc = FileBrowseField("PDF", max_length=200, extensions=[".pdf"])
     maxBallroomArea= models.IntegerField(verbose_name='最大宴会厅面积', help_text='整数')
     maxAllPeople = models.IntegerField(verbose_name='最多可容纳人数', help_text='整数')
