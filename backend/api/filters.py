@@ -5,13 +5,13 @@ from backend.models import PlaceInfo
 
 
 class PlaceListFilter(filters.FilterSet):
-    people_gte = filters.NumberFilter(field_name='ballrooms__maxPeople', lookup_expr='gte')
-    people_lte = filters.NumberFilter(field_name='ballrooms__maxPeople', lookup_expr='lte')
-    price_lte = filters.NumberFilter(field_name='ballrooms__allDayPrice', lookup_expr='lte')
-    price_gte = filters.NumberFilter(field_name='ballrooms__allDayPrice', lookup_expr='gte')
-    area_gte = filters.NumberFilter(field_name='ballrooms__area', lookup_expr='gte')
-    area_lte = filters.NumberFilter(field_name='ballrooms__area', lookup_expr='lte')
-    height_gte = filters.NumberFilter(field_name='ballrooms__height', lookup_expr='gte')
+    people_gte = filters.NumberFilter(field_name='ballrooms__maxPeople', lookup_expr='gte', distinct=True)
+    people_lte = filters.NumberFilter(field_name='ballrooms__maxPeople', lookup_expr='lte', distinct=True)
+    price_lte = filters.NumberFilter(field_name='ballrooms__allDayPrice', lookup_expr='lte', distinct=True)
+    price_gte = filters.NumberFilter(field_name='ballrooms__allDayPrice', lookup_expr='gte', distinct=True)
+    area_gte = filters.NumberFilter(field_name='ballrooms__area', lookup_expr='gte', distinct=True)
+    area_lte = filters.NumberFilter(field_name='ballrooms__area', lookup_expr='lte', distinct=True)
+    height_gte = filters.NumberFilter(field_name='ballrooms__height', lookup_expr='gte', distinct=True)
     city_area = filters.CharFilter(field_name='area')
 
     class Meta:
